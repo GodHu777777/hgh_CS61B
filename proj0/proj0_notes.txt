@@ -1,0 +1,7 @@
+when creating array of objects 
+syntax as below:
+
+Class_Name[] Array = new Class_Name[number];
+
+IMPORTANT: you have to instantiate the elements before using them
+
