@@ -32,10 +32,12 @@ public class Planet {
 	}
 	public double calcForceExertedByX(Planet p) {
 		double dx = p.xxPos - this.xxPos;
+		if(dx == 0.0) return 0;
 		return this.calcForceExertedBy(p) * ( dx / this.calcDistance(p) );
 	}
 	public double calcForceExertedByY(Planet p) {
 		double dy = p.yyPos - this.yyPos;
+		if(dy == 0.0) return 0;
 		return this.calcForceExertedBy(p) * ( dy / this.calcDistance(p) );
 	}
 	public double calcNetForceExertedByX(Planet[] p) {
@@ -60,5 +62,8 @@ public class Planet {
 		this.xxPos += this.xxVel * dt;
 		this.yyPos += this.yyVel * dt;
 		return this;
+	}
+	public void draw() {
+		StdDraw.picture(xxPos,yyPos,"images/" + imgFileName);
 	}
 }
