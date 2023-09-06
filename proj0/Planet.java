@@ -5,7 +5,7 @@ public class Planet {
 	public double yyVel;
 	public double mass;
 	public String imgFileName;
-	static final double ConstG = 6.67e-11;
+	private static final double ConstG = 6.67e-11;
 	public Planet(double xP, double yP, double xV,double yV, double m, String img) {
 		xxPos = xP;
 		yyPos = yP;
@@ -54,14 +54,13 @@ public class Planet {
 		}
 		return res;
 	}
-	public Planet update(double dt,double Fx,double Fy) {
+	public void update(double dt,double Fx,double Fy) {
 		double ax = Fx / this.mass;
 		double ay = Fy / this.mass;
 		this.xxVel += ax * dt;
 		this.yyVel += ay * dt;
 		this.xxPos += this.xxVel * dt;
 		this.yyPos += this.yyVel * dt;
-		return this;
 	}
 	public void draw() {
 		StdDraw.picture(xxPos,yyPos,"images/" + imgFileName);

@@ -1,4 +1,4 @@
-class NBody {
+public class NBody {
 	public static double readRadius(String filePath) {
 		In in = new In(filePath);
 		int t = in.readInt();
@@ -20,7 +20,9 @@ class NBody {
 		}
 		return p;
 	}
-
+	public NBody() {
+		
+	}
 	public static void main(String[] args) {
 		double T = Double.parseDouble(args[0]);
 		double dt = Double.parseDouble(args[1]);
@@ -42,7 +44,7 @@ class NBody {
 			double[] xForces = new double[n];
 			double[] yForces = new double[n];
 			for(int i = 0; i < n; i++) xForces[i] = p[i].calcNetForceExertedByX(p);
-			for(int i = 0; i < n; i++) p[i] = p[i].update(dt,xForces[i],yForces[i]);
+			for(int i = 0; i < n; i++) p[i].update(dt,xForces[i],yForces[i]);
 
 			StdDraw.picture(0,0,"images/starfield.jpg");
 			for(Planet a : p) a.draw();
