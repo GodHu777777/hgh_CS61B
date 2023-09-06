@@ -40,10 +40,16 @@ public class NBody {
 
 		int n = p.length;
 
+		// animation
+		
 		for(double t = 0; t < T; t += dt) {
 			double[] xForces = new double[n];
 			double[] yForces = new double[n];
-			for(int i = 0; i < n; i++) xForces[i] = p[i].calcNetForceExertedByX(p);
+
+			for(int i = 0; i < n; i++) {
+				xForces[i] = p[i].calcNetForceExertedByX(p);
+				yForces[i] = p[i].calcNetForceExertedByY(p);
+			}
 			for(int i = 0; i < n; i++) p[i].update(dt,xForces[i],yForces[i]);
 
 			StdDraw.picture(0,0,"images/starfield.jpg");
